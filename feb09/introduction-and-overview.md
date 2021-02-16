@@ -6,13 +6,15 @@ In the early 2000s Warehouse Scale Computing was thought to be a niche market fo
 
 2.  cloud compute as a service/ The ubiquity of cloud providers
 
-*The* *WSC paper* provides an overview of the primary components of a WSC namely - server, storage, networking and the challenges that accompany its massive scale.
+[The Datacenter as a Computer (3rd Ed.)](https://cs.nyu.edu/~apanda/classes/sp21/papers/dc-computer-v3.pdf) Ch 1 provides an overview of the primary components of a WSC namely -  server, storage, networking and the challenges that accompany its massive scale. Ch 2. Explores common software methods used to ensure hjigh performance in large distributed systems. 
 
 ![Evolution of large scale computing](images/evolution-of-large-scale-computing.jpeg)
 
 Source: a16z
 
-WIth the influx of large amounts of data on the web, together with the scaling up of hardware/ compute- storage moved towards distributed model. One of the more popular models was Google File system. In order to take advantage of a distributed file system and parallelise simple computational tasks while abstracting out the messy underlying details of parallel computing
+With the influx of large amounts of data on the web, due to widespread availability of internet, Google developed a scalable distributed file system for large distributed data intensive applications - namely, [GFS.](https://cs.nyu.edu/~apanda/classes/sp21/papers/gfs.pdf) [MapReduce](https://cs.nyu.edu/~apanda/classes/sp21/papers/mapreduce.pdf) was introduced to parallelize simple computational tasks for processing and generating large
+data sets. while abstracting out the messy underlying details of parallelization, fault-tolerance, data distribution
+and load balancing in a library.
 
 # Motivation
 
