@@ -1,6 +1,6 @@
 # Introduction
 
-In the early 2000s Warehouse Scale Computing was thought to be a niche market for few giant tech companies that could afford the scale and cost of such infrastructure. In recent years we have see high demand in WSC moving towards cloud computing due to
+In the early 2000s Warehouse Scale Computing (WSC) was thought to be a niche market for few giant tech companies that could afford the scale and cost of such infrastructure. In recent years we have see high demand in WSC moving towards cloud computing due to
 
 1.  Economies of scale
 
@@ -110,7 +110,7 @@ The paper discusses Google's implementation of MapReduce that enables automatic 
 
 -   **Applications of map reduce**
     - The reading outlines simple use cases as well as web related application (web indexing) for map reduce. Map reduce paradigm is also applicable to SGD in the deep learning context as outlined in [insert butterfly reduce paper here].
-    - Reduce methods can als
+    - Reduce methods can be of 
      
 ### Google file system
 
@@ -150,7 +150,7 @@ a scalable distributed file system for large distributed data-intensive applicat
 # Trade Offs
 ### Map reduce
 
--   Not for time sensitive applications
+-   Not for time sensitive applicatiƒons
 -   Intelligently define reduce / intermediate steps. Otherwise it may take a really long time
 -   Rigid  → Abstraction. But makes it easy to onboard developers - practical world opex
 -   
@@ -195,24 +195,23 @@ Shift towards edge computing \[4\]- https://a16z.com/2019/11/15/the-end-of-cloud
 
 Cloud computing to edge computing. Credit: a16z
 
-Wikipedia says: \"Edge computing is a distributed computing paradigm which brings computation and data storage closer to the location where it is needed, to improve response times and save bandwidth. Modern edge computing significantly extends this approach through virtualization technology that make it easier to deploy and run a wider range of applications on the edge servers.\"
+Wikipedia says:
+
+>"Edge computing is a distributed computing paradigm which brings computation and data storage closer to the location where it is needed, to improve response times and save bandwidth. Modern edge computing significantly extends this approach through virtualization technology that make it easier to deploy and run a wider range of applications on the edge servers.\"
+
 
 Today's world is a centralized world, and the central cloud is where all processing gets done. The proliferation of the internet of things has resulted in generation of vast amounts of data that needs to be processed in real time. The existing infrastructure will be unable to handle this volume and rates.Compute hungry machine learning on these sensors has further catalysed the edge adoption. Peer to peer networks can be used to reduce load on the core network and share data locally. This move will shift processing to the edge.
 
-## 
+#### GFS
 
-## GFS
-
-[[https://pierrezemb.fr/posts/colossus-google/]{.ul}][8]
-
-Evolution of GFS within Google:
-GFS was later replaced by Colossus, D and supported by Bigtable and Spanner.
--   From [[Storage Architecture and Challenges(2010)]{.ul}][9]:
-    -   Move from full replication in GFS to [[Reed-Salomon]{.ul}][10] in Colossus → replication is handled by the client and the server, instead of the pipelining → saves network bandwidth on the server side.
+[Evolution of GFS within Google](https://pierrezemb.fr/posts/colossus-google/):
+GFS was later replaced by Colossus, D and supported by BigTable.
+-   From [Storage Architecture and Challenges(2010)](https://cloud.google.com/files/storage_architecture_and_challenges.pdf):
+    -   Move from full replication in GFS to [Reed-Salomon]() in Colossus → replication is handled by the client and the server, instead of the pipelining → saves network bandwidth on the server side.
     -   the metadata layer is automatically sharded.
--   From [[GFS: Evolution on Fast-forward(2009)]{.ul}][11]
+-   From [GFS: Evolution on Fast-forward(2009)](https://queue.acm.org/detail.cfm?id=1594206)
     -   Chunk size was reduced to 1MB as the limitations of the master disappeared. This allows Colossus to support latency sensitive applications,
--   From [[Cluster-Level Storage @ Google(2017)]{.ul}][12]:
+-   From [Cluster-Level Storage @ Google(2017)](http://www.pdsw.org/pdsw-discs17/slides/PDSW-DISCS-Google-Keynote.pdf):
     -   GFS master replaced by Colossus
     -   GFS chunkserver replaced by D
     -   Colossus rebalances old, cold data
@@ -221,9 +220,10 @@ GFS was later replaced by Colossus, D and supported by Bigtable and Spanner.
         -   It removed the single point of failure in GFS master
         -   Automatic sharding of regions
         -   Lexical ordering
+
 With the Google Home Ecosystem being widely adopted, New offerings like Anthos (hybrid cloud management) and Edge TPU look promising for edge computing. Google's file storage will now have to support latency sensitive applications.
 
-Map-Reduce
+#### Map-Reduce
 [[https://medium.com/\@oscarstiffelman/a-brief-history-of-mapreduce-97aec97df8ff]{.ul}][13]
 It was part of a paradigm of computing based on transformations of immutable data into sorted records. The key insight in this paradigm: sorting \> hashing.
 maintain the intermediate data in byte-reversed order. This lets me interpret the data as streams of little-endian integers which lets me do 8x as many comparisons per cycle while preserving the same lexical ordering. → key idea? Intermediate representation is important for performance
