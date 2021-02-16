@@ -40,9 +40,9 @@ GFS - Looks at creating a distributed storage system for Google's internal stora
 
 *data processing needs.*
 
-Map Reduce - Explores a programming paradigm to **abstract** out messy details (parallelization, fault-tolerance, data distribution and load balancing in a library) in parallel programming -\> Making it easier for programmers to parallelize programs-\>
+Map Reduce - Explores a programming paradigm to **abstract** out messy details (parallelization, fault-tolerance, data distribution and load balancing in a library) in parallel programming  → Making it easier for programmers to parallelize programs →
 *The issues of how to parallelize the computation, distribute the data, and handle failures conspire to obscure the original simple computation with large amounts of complex code to deal with these issues. As a reaction to this complexity, we designed a new abstraction that allows us to express the simple computations we were trying to perform but hides the messy details of parallelization, fault-tolerance, data distribution and load balancing in a library.*
-1)  parallel programming becomes important 2003 dennard scaling failed. -\> (Ref. No free lunch for developer) - 2004 map reduce for large data processing \-\--BS?
+1)  parallel programming becomes important 2003 dennard scaling failed.  → (Ref. No free lunch for developer) - 2004 map reduce for large data processing \-\--BS?
 2)  Amount of data available grows.
 
 # Approaches
@@ -58,9 +58,9 @@ Reed salomon code over replication
 **https://research.google.com/archive/mapreduce-osdi04-slides**
 ### Map reduce
 **Map reduce** is a programming paradigm introduced by Google for processing and generating large data sets. The input and output are both sets of key value pairs. The programmer defines 2 functions :
--   **Map function** : map (in_key, in_value) -\> list(out_key, intermediate_value)
+-   **Map function** : map (in_key, in_value)  → list(out_key, intermediate_value)
     -   Processes input key value pair and produces set of intermediate pairs
--   **Reduce function** : reduce (out_key, list(intermediate_value)) -\> list(out_value)
+-   **Reduce function** : reduce (out_key, list(intermediate_value))  → list(out_value)
     -   Combines all intermediate values for a particular key to produce a set of merged output values
 The paper discusses Google's implementation of MapReduce that enables automatic parallelization and distribution of large scale computations on a large cluster of commodity machines and is highly performant .
 
@@ -101,7 +101,7 @@ The paper discusses Google's implementation of MapReduce that enables automatic 
     -   Some faults (such as those dependent on the client libraries) cannot be fixed within a reasonable time frame. Next best alternative -
         -   On error - send UDP packet to master to indicate record that failed.
         -   Send the same record to another worker to ensure that it is not a one-off machine error.
-        -   If 2 failures occur -\> Master instructs the next worker to skip the record.
+        -   If 2 failures occur  → Master instructs the next worker to skip the record.
     -   Effect : Handles bugs in 3rd party libraries with bad inputs.
 
 -   **Other Refinements**
@@ -125,7 +125,7 @@ a scalable distributed file system for large distributed data-intensive applicat
 -   Data flow is decoupled from control flow
     -   Client fetches metadata from the master
     -   Client queries chunkserver directly for data operations
-    -   This implementation allows us to tune performance by scheduling data flow based on the network topology. -\> Using pipelining as opposed to other topologies like tree.  
+    -   This implementation allows us to tune performance by scheduling data flow based on the network topology.  → Using pipelining as opposed to other topologies like tree.  
 
 -   Master node:
     -   Responsibilities:
@@ -156,7 +156,7 @@ a scalable distributed file system for large distributed data-intensive applicat
 
 -   Not for time sensitive applications
 -   Intelligently define reduce / intermediate steps. Otherwise it may take a really long time
--   Rigid -\> Abstraction. But makes it easy to onboard developers - practical world opex
+-   Rigid  → Abstraction. But makes it easy to onboard developers - practical world opex
 -   
 Map reduce disadvantages :\
 [[https://cacm.acm.org/magazines/2010/1/55744-mapreduce-a-flexible-data-processing-tool/fulltext]{.ul}][5]
@@ -212,7 +212,7 @@ Today's world is a centralized world, and the central cloud is where all process
 Evolution of GFS within Google:
 GFS was later replaced by Colossus, D and supported by Bigtable and Spanner.
 -   From [[Storage Architecture and Challenges(2010)]{.ul}][9]:
-    -   Move from full replication in GFS to [[Reed-Salomon]{.ul}][10] in Colossus-\> replication is handled by the client and the server, instead of the pipelining-\> saves network bandwidth on the server side.
+    -   Move from full replication in GFS to [[Reed-Salomon]{.ul}][10] in Colossus → replication is handled by the client and the server, instead of the pipelining → saves network bandwidth on the server side.
     -   the metadata layer is automatically sharded.
 -   From [[GFS: Evolution on Fast-forward(2009)]{.ul}][11]
     -   Chunk size was reduced to 1MB as the limitations of the master disappeared. This allows Colossus to support latency sensitive applications,
@@ -230,7 +230,7 @@ With the Google Home Ecosystem being widely adopted, New offerings like Anthos (
 Map-Reduce
 [[https://medium.com/\@oscarstiffelman/a-brief-history-of-mapreduce-97aec97df8ff]{.ul}][13]
 It was part of a paradigm of computing based on transformations of immutable data into sorted records. The key insight in this paradigm: sorting \> hashing.
-maintain the intermediate data in byte-reversed order. This lets me interpret the data as streams of little-endian integers which lets me do 8x as many comparisons per cycle while preserving the same lexical ordering. \-\-\--\> key idea? Intermediate representation is important for performance
+maintain the intermediate data in byte-reversed order. This lets me interpret the data as streams of little-endian integers which lets me do 8x as many comparisons per cycle while preserving the same lexical ordering. → key idea? Intermediate representation is important for performance
 [[https://www.cs.cmu.edu/\~pavlo/slides/mapreduce-pavlo09.pdf]{.ul}][14]
 [[https://cacm.acm.org/magazines/2010/1/55744-mapreduce-a-flexible-data-processing-tool/fulltext]{.ul}][5]
 MapReduce in Practice •Abstract input and output interfaces --lots of MR operations don't just read/write simple files • B-tree files • memory-mapped key-value stores • complex inverted index file formats • BigTable tables • SQL databases, etc. • \... •Low-level MR interfaces are in terms of byte arrays --Hardly ever use textual formats, though: slow, hard to parse --Most input & output is in encoded Protocol Buffer format\
