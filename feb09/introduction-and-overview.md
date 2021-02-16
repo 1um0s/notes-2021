@@ -8,7 +8,7 @@ In the early 2000s Warehouse Scale Computing was thought to be a niche market fo
 
 *The* *WSC paper* provides an overview of the primary components of a WSC namely - server, storage, networking and the challenges that accompany its massive scale.
 
-![Evolution of large scale computing]{images/evolution-of-large-scale-computing.jpeg}
+![Evolution of large scale computing](images/evolution-of-large-scale-computing.jpeg)
 
 Source: a16z
 
