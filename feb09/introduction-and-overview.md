@@ -64,14 +64,14 @@ Performance
 Reed salomon code over replication
 
 **https://research.google.com/archive/mapreduce-osdi04-slides**
+### Map reduce
+**Map reduce** is a programming paradigm introduced by Google for processing and generating large data sets. The input and output are both sets of key value pairs. The programmer defines 2 functions :
 
-Map reduce is a programming paradigm introduced by Google for processing and generating large data sets. The input and output are both sets of key value pairs. The programmer defines 2 functions :
-
--   Map function : map (in_key, in_value) -\> list(out_key, intermediate_value)
+-   **Map function** : map (in_key, in_value) -\> list(out_key, intermediate_value)
 
     -   Processes input key value pair and produces set of intermediate pairs
 
--   Reduce function : reduce (out_key, list(intermediate_value)) -\> list(out_value)
+-   **Reduce function** : reduce (out_key, list(intermediate_value)) -\> list(out_value)
 
     -   Combines all intermediate values for a particular key to produce a set of merged output values
 
@@ -151,7 +151,7 @@ The paper discusses Google's implementation of MapReduce that enables automatic 
 
 -   Local execution for debugging/testing
 
--   User-defined counters
+-   User-defined counters 
 
 Applications of map reduce
 
@@ -161,7 +161,7 @@ The reading discusses
 
 The map reduce paper explains simple applications of the popular programming paradigm. The map reduce paradigm can be applied to SGD in
 
-**GFS:**
+### Google file system
 
 a scalable distributed file system for large distributed data-intensive applications.
 
