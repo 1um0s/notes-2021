@@ -109,8 +109,8 @@ The paper discusses Google's implementation of MapReduce that enables automatic 
     -   User-defined counters 
 
 -   **Applications of map reduce**
-    - The reading outlines simple use cases as well as web related application (web indexing) for map reduce. Map reduce paradigm is also applicable to SGD in the deep learning context as outlined in [insert butterfly reduce paper here].
-    - Reduce methods can be of 
+    - The reading outlines simple use cases as well as web related application (web indexing) for map reduce. Map reduce paradigm is also applicable to SGD in the deep learning context as outlined by [Zhao and Canny](https://people.eecs.berkeley.edu/~jfc/papers/13/butterflymixing.pdf).
+    - 
      
 ### Google file system
 
@@ -127,7 +127,9 @@ a scalable distributed file system for large distributed data-intensive applicat
     -   Responsibilities:
         -   Stores all file system metadata in memory
         -   Controls all system wide activities - managing chunk leases, reclaiming storage space, load-balancing
-    -   Single master \[2\]- mostly just to simplify the overall design problem. a central place to control replication and garbage collection and many other activities was definitely simpler than handling it all on a distributed basis
+    -   Single master - [GFS: Evolution on Fast-forward](https://queue.acm.org/detail.cfm?id=1594206)
+        - Simplify the overall design problem. 
+        - A central place to control replication and garbage collection and many other activities was simpler than handling it all on a distributed basis.
     -   Operation log:
         -   persistent record of metadata
         -   logical timeline that defines the serialized order of concurrent operations
@@ -170,7 +172,7 @@ GFS architectural problems GFS master
 ● Single bottleneck for metadata operations
 ● Fault tolerant, not HA Predictable performance
 ● No guarantees of latency : High sustained bandwidth is more important than low latency.
--   # Typical workloads/ file access patterns:
+- Typical workloads/ file access patterns:
     -   Reads
         -   Large streaming reads
         -   Small random reads
