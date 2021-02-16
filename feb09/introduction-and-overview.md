@@ -77,7 +77,7 @@ The paper discusses Google's implementation of MapReduce that enables automatic 
         -   *Atomic commits to guarantee same o/p as sequential machine*
         -   *the atomic rename operation provided by the underlying file system to guarantee that the final file system state contains just the data produced by one execution of the reduce task.*
 
--   **Tail latency :** Handled by redundant execution
+-   **Tail latency** : Handled by redundant execution
     -   Causes :
         -   Other jobs consuming resources on machine
         -   Bad disks with soft errors transfer data very slowly
@@ -86,9 +86,7 @@ The paper discusses Google's implementation of MapReduce that enables automatic 
     -   Effect: reduction in unpredictable tail latency
 
 -   **Locality optimisation :** Bringing code to the data
-
     -   Master scheduling policy:
-
         -   Queries GFS for locations of replicas of input file blocks
         -   Map tasks typically split into 64MB (to take advantage of the underlaying storage system - GFS block size)
         -   Map tasks scheduled so GFS input block replica are on same machine or same rack
@@ -96,7 +94,6 @@ The paper discusses Google's implementation of MapReduce that enables automatic 
         -   Effect: Thousands of machines read input at local disk speed. Saves on network bandwidth
 
 -   **Skipping bad records**
-
     -   Best solution - debug and fix bad records.
     -   Some faults (such as those dependent on the client libraries) cannot be fixed within a reasonable time frame. Next best alternative -
         -   On error - send UDP packet to master to indicate record that failed.
@@ -105,7 +102,6 @@ The paper discusses Google's implementation of MapReduce that enables automatic 
     -   Effect : Handles bugs in 3rd party libraries with bad inputs.
 
 -   **Other Refinements**
-
     -   Sorting guarantees within each reduce partition
     -   Compression of intermediate data
     -   Combiner: useful for saving network bandwidth
