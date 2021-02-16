@@ -6,7 +6,7 @@ In the early 2000s Warehouse Scale Computing (WSC) was thought to be a niche mar
 
 2.  cloud compute as a service/ The ubiquity of cloud providers
 
-[The Datacenter as a Computer (3rd Ed.)](https://cs.nyu.edu/~apanda/classes/sp21/papers/dc-computer-v3.pdf) Ch 1 provides an overview of the primary components of a WSC namely -  server, storage, networking and the challenges that accompany its massive scale. Ch 2. Explores common software methods used to ensure hjigh performance in large distributed systems. 
+[The Datacenter as a Computer (3rd Ed.)](https://cs.nyu.edu/~apanda/classes/sp21/papers/dc-computer-v3.pdf) Ch 1 provides an overview of the primary components of a WSC namely -  server, storage, networking and the challenges that accompany its massive scale. Ch 2. Explores common software methods used to ensure high performance in large distributed systems. 
 
 ![Evolution of large scale computing](images/evolution-of-large-scale-computing.jpeg)
 
@@ -46,14 +46,11 @@ Map Reduce - Explores a programming paradigm to **abstract** out messy details (
 2)  Amount of data available grows.
 
 # Approaches
-**Wsc** -
+### The Datacenter as a Computer
+The reading provides a brief overview of the architecture of large scale systems. 
 
-Back of the envelope calculations\
-Profilers
-
-Performance
-
-Reed salomon code over replication
+The software stack and it's corresponding components 
+![Software stack](images/sw-stack.png)
 
 **https://research.google.com/archive/mapreduce-osdi04-slides**
 ### Map reduce
