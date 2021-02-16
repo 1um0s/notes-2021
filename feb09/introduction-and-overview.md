@@ -117,25 +117,16 @@ The paper discusses Google's implementation of MapReduce that enables automatic 
 
     -   Master scheduling policy:
 
-```{=html}
-<!-- -->
-```
--   Queries GFS for locations of replicas of input file blocks
+        -   Queries GFS for locations of replicas of input file blocks
 
--   Map tasks typically split into 64MB (to take advantage of the underlaying storage system - GFS block size)
+        -   Map tasks typically split into 64MB (to take advantage of the underlaying storage system - GFS block size)
 
--   Map tasks scheduled so GFS input block replica are on same machine or same rack
+        -   Map tasks scheduled so GFS input block replica are on same machine or same rack
 
-```{=html}
-<!-- -->
-```
--   Without this, rack switches limit read rate
+        -   Without this, rack switches limit read rate
 
--   Effect: Thousands of machines read input at local disk speed. Saves on network bandwidth
+        -   Effect: Thousands of machines read input at local disk speed. Saves on network bandwidth
 
-```{=html}
-<!-- -->
-```
 -   **Skipping bad records**
 
     -   Best solution - debug and fix bad records.
@@ -148,7 +139,7 @@ The paper discusses Google's implementation of MapReduce that enables automatic 
 
         -   If 2 failures occur -\> Master instructs the next worker to skip the record.
 
-    -   Effect : Handles bugs in 3rd party libraries/ bad inputs.
+    -   Effect : Handles bugs in 3rd party libraries with bad inputs.
 
 # **Other Refinements (see paper)**
 
@@ -164,7 +155,7 @@ The paper discusses Google's implementation of MapReduce that enables automatic 
 
 Applications of map reduce
 
-The reading discusses
+The reading discusses 
 
 \-\-\-\-\-\-\--\>\>\>\>Butterfly reduce-?
 
